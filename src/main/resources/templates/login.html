@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta author="Emir Sapmaz" />
+    <meta
+      name="description"
+      content="A car plate tracking system for the parking lot"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Link for the font-awsome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Links for the font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Parking Lot</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="paraerror pulse">
+        <div th:if="${param.error}">
+          <p>Invalid email or password!</p>
+        </div>
+        <div th:if="${param.logout}">
+          <p class="loggedout">You have been logged out!</p>
+        </div>
+      </div>
+      <div th:if="${param.success}">
+        <div class="success pulse">
+          <p>You have successfully registered!</p>
+        </div>
+      </div>
+      <div class="content pulse">
+        <h1>
+          <a href="@{/login}" style="text-decoration: none; color: black"
+            >Welcome</a
+          >
+        </h1>
+        <hr />
+        <div class="forms">
+          <form th:action="@{/login}" method="post">
+            <div class="row">
+              <input
+                type="email"
+                placeholder="Email"
+                name="username"
+                id="username"
+                required
+              /><i class="fa-solid fa-envelope"></i>
+            </div>
+            <div class="row">
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                id="password"
+                required
+              /><i class="fa-solid fa-lock"></i>
+            </div>
+            <button
+              type="submit"
+              class="btn"
+              name="login-submit"
+              id="login-submit"
+            >
+              Login
+            </button>
+          </form>
+          <a href="#" th:href="@{/register}">Already not yet registered?</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

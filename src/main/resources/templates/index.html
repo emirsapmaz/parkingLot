@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta author="Emir Sapmaz" />
+    <meta
+      name="description"
+      content="A car plate tracking system for the parking lot"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Link for the font-awsome cdn -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Links for the font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Parking Lot</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="logout">
+        <ul>
+          <li sec:authorize="isAuthenticated()">
+            <a th:href="@{/logout}">Logout</a>
+          </li>
+        </ul>
+      </div>
+      <div class="content pulse">
+        <h1 class="mainh1">Welcome <span th:text="${user.fname}"></span></h1>
+        <div class="info">
+          <span class="available"
+            ><i class="fa-solid fa-circle"></i>
+            <span
+              th:text="${available}"
+              style="margin-right: 5px; font-size: 2.5rem"
+            ></span>
+            <p></p>
+            spots available</span
+          >
+          <span class="occupied"
+            ><i class="fa-solid fa-circle"></i
+            ><span
+              th:text="${occupied}"
+              style="margin-right: 5px; font-size: 2.5rem"
+            ></span>
+            <p></p>
+            spots occupied</span
+          >
+        </div>
+        <hr />
+        <div class="forms">
+          <form th:action="@{/addPlate}" method="post" th:object="${user}">
+            <div class="mainrow">
+              <label for="plateNumber">Add your plate to the system </label>
+              <div class="inputarea">
+                <input
+                  type="text"
+                  placeholder="Enter Plate number"
+                  name="plateNumber"
+                  id="addPlateNumber"
+                  th:field="*{platenumber}"
+                /><i class="fa-solid fa-plus"></i>
+                <button type="submit" class="btn">Submit</button>
+              </div>
+              <div class="popup" th:if="${param.plateadded}">
+                <p>Plate successfully added to the system!</p>
+              </div>
+            </div>
+          </form>
+          <form th:action="@{/deletePlate}" method="post" th:object="${user}">
+            <div class="mainrow">
+              <label for="deletep">Delete your plate from the system </label>
+              <div class="inputarea">
+                <input
+                  type="text"
+                  placeholder="Enter Plate number"
+                  name="deletep"
+                  id="deletePlateNumber"
+                  th:field="*{platenumber}"
+                /><i class="fa-solid fa-trash"></i>
+                <button type="submit" class="btn">Submit</button>
+              </div>
+              <div class="popup" th:if="${param.platedeleted}">
+                <p>Plate successfully deleted in the system!</p>
+              </div>
+              <div
+                class="popup"
+                style="color: red"
+                th:if="${param.noplatedeleted}"
+              >
+                <p>Plate cannot be found in the system!</p>
+              </div>
+            </div>
+          </form>
+          <form th:action="@{/checkPlate}" method="post" th:object="${user}">
+            <div class="mainrow">
+              <label for="checkp"
+                >Check if your car is in the parking lot</label
+              >
+              <div class="inputarea">
+                <input
+                  type="text"
+                  placeholder="Enter Plate number"
+                  name="checkp"
+                  th:field="*{platenumber}"
+                /><i class="fa-solid fa-check"></i>
+                <button type="submit" class="btn">Submit</button>
+              </div>
+              <div class="popup" th:if="${param.platechecked}">
+                <p>Plate successfully found in the system!</p>
+              </div>
+              <div
+                class="popup"
+                style="color: red"
+                th:if="${param.noplatechecked}"
+              >
+                <p>Plate cannot be found in the system!</p>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

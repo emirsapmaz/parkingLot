@@ -1,0 +1,266 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+}
+body {
+  font-family: "Comfortaa", sans-serif;
+  font-size: 2rem;
+  /* background-color: coral; */
+  background: linear-gradient(
+    90deg,
+    rgba(255, 127, 80, 1) 0%,
+    rgba(245, 245, 220, 1) 100%
+  );
+}
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background: rgb(255, 127, 80); */
+  background: linear-gradient(
+    90deg,
+    rgba(255, 127, 80, 1) 0%,
+    rgba(245, 245, 220, 1) 100%
+  );
+}
+
+.content {
+  padding: 2rem;
+  border-radius: 20px;
+  /* background-color: beige; */
+  /* box-shadow: rgba(0, 0, 0, 0.36) 0px 22px 70px 4px; */
+  box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 1);
+  /* height: 600px; */
+  width: 30%;
+}
+.pulse {
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 1);
+  }
+  50% {
+    box-shadow: 0px 0px 70px 0px rgba(0, 0, 0, 1);
+  }
+  100% {
+    box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 1);
+  }
+}
+h1 {
+  text-align: center;
+  font-size: 5rem;
+  /* margin-top: 4rem; */
+}
+hr {
+  border: 1px solid black;
+  margin-top: 1rem;
+}
+.forms {
+  display: flex;
+  flex-direction: column;
+  /* height: 80%; */
+}
+form {
+  display: flex;
+  flex-direction: column;
+  /* padding: 5rem 10rem; */
+  padding: 1rem;
+}
+form input {
+  font-size: 2rem;
+  margin: 1.5rem -0.5rem 1.5rem 1.5rem;
+  flex-grow: 1;
+  border: 2px solid rgba(0, 0, 0, 0.238);
+  border-radius: 20px;
+  font-family: inherit;
+  padding: 2rem;
+  padding-right: 4rem;
+  width: 80%;
+  background: none;
+}
+
+.btn {
+  font-size: 2.2rem;
+  border: 2px solid rgba(0, 0, 0, 0.238);
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  background: none;
+  width: 30%;
+  font-family: inherit;
+  margin: 3rem 5rem 1rem 5rem;
+  align-self: center;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.forms a {
+  text-align: center;
+  font-family: inherit;
+  align-items: center;
+}
+form input:hover,
+form input:focus {
+  background-color: rgb(221, 221, 197);
+  transition: 0.5s;
+}
+form input:focus {
+  outline: none;
+}
+form input::placeholder {
+  color: black;
+}
+.btn:hover {
+  background-color: coral;
+  color: white;
+  font-size: 2.5rem;
+  transition: 0.5s;
+}
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.row i {
+  position: relative;
+  right: 30px;
+}
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.available {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 0.5rem;
+}
+.occupied {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 0.5rem;
+}
+.available i {
+  font-size: 3rem;
+  padding: 0px 0.5rem;
+  color: green;
+}
+.occupied i {
+  font-size: 3rem;
+  padding: 0px 0.5rem;
+  color: red;
+}
+.mainh1 {
+  margin-bottom: 2rem;
+}
+.mainrow input {
+  margin-left: 0px;
+}
+.inputarea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+.mainrow label {
+  font-size: 2.5rem;
+}
+.mainrow button {
+  margin: 2rem;
+  margin-right: 0px;
+}
+@media (max-width: 1600px) {
+  .content {
+    width: 50%;
+  }
+}
+@media (max-width: 950px) {
+  .content {
+    width: 75%;
+  }
+}
+@media (max-width: 600px) {
+  .content {
+    width: 90%;
+  }
+}
+@media (max-width: 450px) {
+  .content {
+    width: 100%;
+  }
+}
+.success {
+  background-color: grey;
+  border-radius: 20px;
+  position: absolute;
+  top: 2rem;
+  left: 58rem;
+}
+.success p {
+  padding: 2rem;
+  font-size: 3rem;
+  color: greenyellow;
+}
+.paraerror {
+  background-color: rgb(212, 210, 210);
+  display: flex;
+  border-radius: 20px;
+  position: absolute;
+  top: 2rem;
+  left: 63rem;
+}
+.paraerror p {
+  padding: 2rem;
+  font-size: 3rem;
+  color: rgb(255, 0, 0);
+}
+.loggedout {
+  color: aquamarine;
+}
+.logout {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+.logout ul {
+  font-size: 3rem;
+  cursor: pointer;
+  list-style-type: none; /* Remove bullets */
+}
+.logout ul li {
+  border-radius: 20px;
+  border: 2px solid rgba(0, 0, 0, 0.238);
+  border-radius: 20px;
+  padding: 1rem 2rem;
+  transition: 0.5s;
+}
+.logout ul li:hover {
+  background-color: coral;
+  color: white;
+  font-size: 3.5rem;
+  transition: 0.5s;
+}
+.logout a {
+  text-decoration: none;
+}
+.popup {
+  background-color: rgb(212, 210, 210);
+  display: flex;
+  border-radius: 20px;
+  padding: 1rem;
+  font-size: 2rem;
+  color: rgb(82, 136, 0);
+  justify-content: center;
+}
+.inputarea i {
+  position: relative;
+  right: 3rem;
+}
