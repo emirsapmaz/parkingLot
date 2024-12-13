@@ -17,8 +17,29 @@ This is a full-stack Spring application I developed during my second internship 
 ![Ekran Görüntüsü (56)](https://github.com/user-attachments/assets/8abcebbe-4856-4a77-ad4e-fb6ab92ee657)
 
 
-## 📦 Installation
+## 📦 **Installation**  
+Follow these steps to set up the project on your local environment:  
 
-- First create a new schema from the MySQL workbench named as parkinglot.(The name of the schema should be same as the one in application.properties).
-- Get the files from the repository and download it to your IDE.
-- Now you are good to go just run the program, enjoy.
+1. **Create the Database**  
+   - Open **MySQL Workbench** and create a new schema named **`parkinglot`**.  
+   - Ensure the schema name matches the one defined in **`application.properties`** to avoid connection issues.  
+
+2. **Clone the Repository**  
+   - Download the project files using the following command:  
+     ```bash
+     git clone https://github.com/username/repository.git
+     cd repository
+     ```
+
+3. **Import the Project**  
+   - Open your **IDE (IntelliJ, Eclipse, etc.)** and import the project as a **Maven/Gradle project**.  
+
+4. **Run the Application**  
+   - Launch the application using your IDE's **Run** option or with:  
+     ```bash
+     ./mvnw spring-boot:run
+     ```
+
+🎉 **That's it! The application is up and running. Enjoy!**  
+
+  
