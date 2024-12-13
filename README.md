@@ -27,7 +27,7 @@ Follow these steps to set up the project on your local environment:
 2. **Clone the Repository**  
    - Download the project files using the following command:  
      ```bash
-     git clone https://github.com/username/repository.git
+     git clone https://github.com/emirsapmaz/parkingLot.git
      cd repository
      ```
 
